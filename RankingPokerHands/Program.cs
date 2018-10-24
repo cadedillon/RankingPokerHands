@@ -10,10 +10,10 @@ namespace RankingPokerHands
     {
         static void Main(string[] args)
         {
-            Console.WriteLine(CheckHand.IsFourKind(new int[] { 3, 3, 2, 3, 3 }));
-            Console.WriteLine(CheckHand.IsFourKind(new int[] { 2, 3, 3, 3, 3 }));
-            Console.WriteLine(CheckHand.IsFourKind(new int[] { 4, 4, 4, 4, 3 }));
-            Console.WriteLine(CheckHand.IsFourKind(new int[] { 7, 2, 9, 3, 11 }));
+            Console.WriteLine(CheckHand.IsTwoPair(new int[] { 3, 3, 5, 6, 6 }));
+            Console.WriteLine(CheckHand.IsTwoPair(new int[] { 2, 2, 3, 3, 6 }));
+            Console.WriteLine(CheckHand.IsTwoPair(new int[] { 7, 11, 11, 12, 12 }));
+            Console.WriteLine(CheckHand.IsTwoPair(new int[] { 7, 2, 9, 3, 11 }));
         }
     }
 

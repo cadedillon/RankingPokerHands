@@ -35,7 +35,7 @@ namespace RankingPokerHands
                 Console.WriteLine(cardVal[i]);
             }
 
-            //Sort the cardVal array in acending order to check for 
+            //Sort the cardVal array in acending order to make comparison easier
             Array.Sort(cardVal);
             return cardVal;
         }
