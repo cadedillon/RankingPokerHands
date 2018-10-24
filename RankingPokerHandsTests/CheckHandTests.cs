@@ -137,5 +137,14 @@ namespace RankingPokerHands.Tests
             Assert.IsFalse(CheckHand.IsPair(new int[] { 2, 3, 5, 6, 11 }));
             Assert.IsFalse(CheckHand.IsPair(new int[] { 5, 4, 13, 2, 6 }));
         }
+
+        [TestMethod()]
+        public void HighCardTest()
+        {
+            Assert.AreEqual(12, CheckHand.HighCard(new int[] { 5, 4, 12, 2, 6 }));
+            Assert.AreEqual(7, CheckHand.HighCard(new int[] { 5, 7, 3, 2, 6 }));
+            Assert.AreEqual(13, CheckHand.HighCard(new int[] { 1, 2, 13, 8, 11 }));
+            Assert.AreEqual(6, CheckHand.HighCard(new int[] { 1, 2, 3, 4, 6 }));
+        }
     }
 }

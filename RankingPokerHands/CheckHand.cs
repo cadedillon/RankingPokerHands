@@ -25,21 +25,20 @@ namespace RankingPokerHands
             //While loop checks to see if the cardValues Array is comprised of a 'T' (converted to its int value for easier comparison)
             //and increases linearly to complete the conditions for a royal flush!
             while(linearSet != true)
-            { 
+            {
                 if (cardValues[0] == 9 && cardValues[j] == cardValues[j + 1] - 1)
                 {
-                   j++;
+                    j++;
                 }
                 else
                 {
                     break;
                 }
 
-                if(j == cardValues.Length - 1)
+                if (j == cardValues.Length - 1)
                 {
                     return true;
                 }
-                    
             }
 
             return false;
@@ -289,9 +288,22 @@ namespace RankingPokerHands
             else return false;
         }
 
-        //public static int HighCard(string[] hand)
-        //{
+        public static int HighCard(int[] cardValues)
+        {
+            //This method, if no other method returns true
+            //Will return the value of the highest card in the hand
+            int max = 0;
+            //Iterate through cardValues comparing each value to the max variable and
+            //if cardValues[i] is higher, assign max to that value
+            for(int i = 0; i < cardValues.Length; i++)
+            {
+                if(cardValues[i] > max)
+                {
+                    max = cardValues[i];
+                }
+            }
 
-        //}
+            return max;
+        }
     }
 }

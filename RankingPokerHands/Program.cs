@@ -24,8 +24,6 @@ namespace RankingPokerHands
         Tie
     }
 
-    
-
     public class PokerHand
     {
         public PokerHand(string hand)
