@@ -306,4 +306,72 @@ namespace RankingPokerHands
             return max;
         }
     }
+
+    public class HandComparator
+    {
+        public static string HandClassification(int[] cardValues, char[] suits)
+        {
+            string classification = "";
+            while (classification == "")
+            {
+                if (CheckHand.IsRoyalFlush(cardValues, suits) == true)
+                {
+                    classification = "Royal Flush";
+                    break;
+                }
+
+                else if (CheckHand.IsStraightFlush(cardValues, suits) == true)
+                {
+                    classification = "Straight Flush";
+                    break;
+                }
+
+                else if (CheckHand.IsFourKind(cardValues) == true)
+                {
+                    classification = "Four of a Kind";
+                    break;
+                }
+
+                else if (CheckHand.IsFullHouse(cardValues) == true)
+                {
+                    classification = "Full House";
+                    break;
+                }
+
+                else if (CheckHand.IsFlush(suits) == true)
+                {
+                    classification = "Flush";
+                    break;
+                }
+
+                else if (CheckHand.IsStraight(cardValues) == true)
+                {
+                    classification = "Straight";
+                    break;
+                }
+
+                else if (CheckHand.IsThreeKind(cardValues) == true)
+                {
+                    classification = "Three of a Kind";
+                    break;
+                }
+
+                else if (CheckHand.IsTwoPair(cardValues) == true)
+                {
+                    classification = "Two Pairs";
+                    break;
+                }
+                else if (CheckHand.IsPair(cardValues) == true)
+                {
+                    classification = "Pair";
+                    break;
+                }
+
+                else classification = "High Card";
+                break;
+            }
+
+            return classification;
+        }
+    }
 }

@@ -20,7 +20,7 @@ namespace RankingPokerHands
           { "Full House", 700 },
           { "Four of a Kind", 800 },
           { "Straight Flush", 900 },
-          { "Royal FLush", 1000 },
+          { "Royal Flush", 1000 },
 
         };
 
@@ -32,7 +32,7 @@ namespace RankingPokerHands
             {
                 char[] card = hand[i].ToCharArray();
                 cardVal[i] = Cards.cardValues[card[0]];
-                Console.WriteLine(cardVal[i]);
+                //Console.WriteLine(cardVal[i]);
             }
 
             //Sort the cardVal array in acending order to make comparison easier
@@ -47,7 +47,7 @@ namespace RankingPokerHands
             {
                 char[] card = hand[i].ToCharArray();
                 suit[i] = card[1];
-                Console.WriteLine(suit[i]);
+                //Console.WriteLine(suit[i]);
             }
 
             return suit;
