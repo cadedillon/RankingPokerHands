@@ -11,11 +11,7 @@ namespace RankingPokerHands
         static void Main(string[] args)
         {
             string format = "\n\t";
-            //Console.WriteLine(CheckHand.IsTwoPair(new int[] { 3, 3, 5, 6, 6 }));
-            //Console.WriteLine(CheckHand.IsTwoPair(new int[] { 2, 2, 3, 3, 6 }));
-            //Console.WriteLine(CheckHand.IsTwoPair(new int[] { 7, 11, 11, 12, 12 }));
-            //Console.WriteLine(CheckHand.IsTwoPair(new int[] { 7, 2, 9, 3, 11 }));
-
+            
             Console.WriteLine(format + "Test Group 1");
 
             Console.WriteLine();
@@ -93,44 +89,51 @@ namespace RankingPokerHands
 
     public class PokerHand
     {
-        string[] cards;
+        string[] cardsArray;
         char[] suits;
         int[] cardValues;
 
         string classification;
-        int handValue;
 
-        public int HandValue
-        {
-            get
-            {
-                return this.handValue;
-            }
-
-        }
+        public int HandValue { get; }
 
         public PokerHand(string hand)
         {
-            this.cards = hand.Split(' ');
-            this.suits = Hands.ParseHandSuits(cards);
-            this.cardValues = Hands.ParseHandValues(cards);
+            this.cardsArray = hand.Split(' ');
+            this.suits = Hands.ParseHandSuits(cardsArray);
+            this.cardValues = Hands.ParseHandValues(cardsArray);
 
-            this.classification = HandComparator.HandClassification(cardValues, suits);
+            this.classification = HandComparator.HandValueCalculator(cardValues, suits);
             Console.WriteLine("\n\t" + classification);
-            this.handValue = Hands.handValues[classification];
+            this.HandValue = Hands.handValues[classification];
         }
 
         
 
-        public Result CompareWith(PokerHand hand)
+        public Result CompareWith(PokerHand opponentHand)
         {
-            if (this.HandValue > hand.HandValue)
+            if (this.HandValue > opponentHand.HandValue)
                 return Result.Win;
 
-            else if (this.HandValue < hand.HandValue)
+            else if (this.HandValue < opponentHand.HandValue)
                 return Result.Loss;
 
-            else return Result.Tie;
+            else
+            {
+                for(int i = cardValues.Length - 1; i >= 0; i--)
+                {
+                    if(this.cardValues[i] > opponentHand.cardValues[i])
+                    {
+                        return Result.Win;
+                    }
+                    else if(this.cardValues[i] < opponentHand.cardValues[i])
+                    {
+                        return Result.Loss;
+                    }
+                }
+
+                return Result.Tie;
+            }
 
         }
     }

@@ -309,7 +309,7 @@ namespace RankingPokerHands
 
     public class HandComparator
     {
-        public static string HandClassification(int[] cardValues, char[] suits)
+        public static string HandValueCalculator(int[] cardValues, char[] suits)
         {
             string classification = "";
             while (classification == "")
@@ -322,6 +322,7 @@ namespace RankingPokerHands
 
                 else if (CheckHand.IsStraightFlush(cardValues, suits) == true)
                 {
+
                     classification = "Straight Flush";
                     break;
                 }
